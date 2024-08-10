@@ -1,7 +1,7 @@
 import random
 from collections import Counter
 
-device_names = "ram rom"
+device_names = "ram rom networkcard gpu coolingfan mothercard sourcecontrol instructionpanel cpu"
 
 some_words=device_names.split()
 word = random.choice(some_words)
