@@ -22,7 +22,7 @@ def game():
     last = 0
 
     while True:
-        print("\nFor first turn enter 'F', for second turn enter 'S':")
+        print("\nFor first turn enter 'F', for second turn ente 'S':")
         inp = input('>').lower()
 
         if inp == 'f':
