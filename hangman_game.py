@@ -23,7 +23,7 @@ playing = True
 try:
     while chances>0 and  not flag:
         print()
-        guess = input("Enter the guessing letter: ").lower()
+        guess = input("Enter the your guessenig letter : ").lower()
 
         if not guess.isalpha():
             print("Enter only alphabets!")
