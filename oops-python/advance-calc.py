@@ -31,12 +31,6 @@ def calculate(expr):
     except Exception as e:
         return f"Error: {e}"       
 
-
-p = 0
-
-d = 1
-
-
 while True:
     print("---- Advance Calculator ----")
     print("Enter expression like: 5 + 4 or 6*2")
