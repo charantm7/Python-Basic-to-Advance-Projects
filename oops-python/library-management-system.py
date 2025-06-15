@@ -125,8 +125,8 @@ while True:
         library.register_user(name)
 
     elif choice == 3:
-        user_id = int(input("Enter user id: "))
-        book_id = int(input("Enter book id: "))
+        user_id = int(input("Enter users id: "))
+        book_id = int(input("Enter books id: "))
         library.borrow_book(book_id, user_id)
     elif choice == 4:
         user_id = int(input("Enter user id: "))
