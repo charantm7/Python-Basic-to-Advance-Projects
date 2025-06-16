@@ -1,5 +1,5 @@
 def lose():
-    print("\nBad luck!Try again later.")
+    print("\nBad luck! Try again later.")
     exit(0)
 
 def consecutive(numbers):
