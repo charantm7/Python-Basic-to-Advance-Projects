@@ -30,7 +30,7 @@ def game():
 
                 if last == 20:
                     lose()
-                print("\nHow many numbers do you wish to enter b/w (1-3):")
+                print("\nHow many number do you wish to enter b/w (1-3):")
                 user = int(input('>'))
 
                 if 1 <= user <= 3:
