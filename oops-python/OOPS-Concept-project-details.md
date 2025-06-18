@@ -8,7 +8,7 @@
 
 4. Student Marks Report Generator
 
-5. Online Quiz apply
+5. Online Quiz
 
 6. Inventory & Billing System
 
