@@ -1,3 +1,32 @@
+
+"""
+    Example Report Template
+
+    ----- Student Marks Report -----
+
+    ** Student Details **
+
+    Name : Charan T M
+    USN : 1VE23CS036
+    Contact : 6362218372
+
+    ** Student Marks Record **
+
+    Subjects  Marks   Grade   Status  
+    MATHS     89      A       Pass    
+    PYTHON    76      B       Pass    
+    JAVA      80      B       Pass    
+    MC        90      A       Pass    
+    ADA       86      A       Pass    
+
+    Total Mark : 421/500
+    Percentage : 84.000
+    Grade : A
+
+    ** Thank You **
+
+    """
+
 class Student:
     def __init__(self, name, roll_no, contact):
         self.name = name
@@ -6,14 +35,14 @@ class Student:
         self.marks = {}
         
     def add_marks(self, sub, mark):
-        return self.marks[sub] == mark
+        self.marks[sub] = mark
 
     def calc_avg(self):
         total = 0
         for value in self.marks.values():
             total += value
-        avg = total/len(self.marks)
-        print(f"{self.name}'s marks average is {avg}.")
+        avg = total//len(self.marks)
+        return avg
         
     def is_pass(self):
         failed = any( mark<35 for mark in self.marks.values())
@@ -52,7 +81,7 @@ class Student:
             return 'E'
         
     def total_grade(self):
-        percentage = self.calc_avg()*100
+        percentage = self.calc_avg()
         if percentage > 90:
             return 'A++'
         elif percentage > 80:
@@ -78,63 +107,47 @@ class Report:
         print(f"{name} has been added as a student successfully!")
         
     
-    def marks_input(self, sub, marks):
-        student_marks = self.student.add_marks(sub, marks)
-        return student_marks
-    
-    """
-    ----- SSLC Marks Report -----
-
-    ** Student Details **
-
-    Name : Charan T M
-    USN : 1VE23CS000
-    Contact : 6362218365
-
-    ** Student Marks Report **
-
-    |  Subject  |  Marks  |  Grade  |  Status  |
-    |  Maths    |  100    |  A++    |  Pass    |
-    |  Python   |  90     |  A      |  Pass    |
-    |  Java     |  80     |  B      |  Pass    |
-
-    Total Marks : 270 / 300
-    Percentage : 95%
-    Grade : A++
-
-    ** Thank You **
-
-    """
+    def marks_input(self, n):
+        student = self.student
+        for i in range(n):
+            sub = input("Subject: ")
+            marks = int(input("Marks: "))
+            student.add_marks(sub, marks)
+        
     
     def generate_report(self):
+        student = self.student
         print("\n----- Student Marks Report -----\n")
         print("** Student Details **\n")
-        print(f"Name : {self.student.name}")
-        print(f"USN : {self.student.roll_no}")
-        print(f"Contact : {self.student.contact}")
+        print(f"Name : {student.name}")
+        print(f"USN : {student.roll_no}")
+        print(f"Contact : {student.contact}")
         print("\n** Student Marks Record **\n")
-        print("Subjects\tMarks\tGrade\tStatus")
+        print(f"{'Subjects':<10}{'Marks':<8}{'Grade':<8}{'Status':<8}")
         total = 0
-        no_of_sub = 0*100
+        no_of_sub = 0
 
-        for sub, mark in self.student.marks.items():
+        for sub, mark in student.marks.items():
             total += mark
             no_of_sub += 1
-            print(f"{sub}\t{mark}\t{self.student.grade_persub(mark)}\t{self.student.status_validation(mark)}")
+            print(f"{sub:<10}{mark:<8}{student.grade_persub(mark):<8}{student.status_validation(mark):<8}")
         
-        print(f"\nTotal Mark : {total}/{no_of_sub}")
-        print(f"Percentage : {self.student.calc_avg()*100}")
-        print(f"Grade : {self.student.total_grade()}")
+        print(f"\nTotal Mark : {total}/{no_of_sub*100}")
+        print(f"Percentage : {student.calc_avg():.3f}")
+        print(f"Grade : {student.total_grade()}")
 
         print("\n** Thank You **")
 
-            
 
+print("\n--- Welcome to Student Marks Report Generator ---\n")
 
+name = input("Enter the name: ")
+roll = input("Enter Roll Number: ")
+contact = int(input("Enter contact details: "))
+report = Report()
+student = report.add_student(name, roll, contact)
+n = int(input("Enter number of subjects: "))
+report.marks_input(n)
 
-
-    
-
-
-
+report.generate_report()
 
