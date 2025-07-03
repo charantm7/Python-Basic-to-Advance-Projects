@@ -48,7 +48,7 @@ while True:
     elif user_input.upper() == 'B':
         if position > -1:
             position -= 1
-            print(f"Backward to: {database[position]}")
+            print(f"Backwards to: {database[position]}")
         else:
             print("Nothing to Back!")
     elif user_input.upper() == "Q":
