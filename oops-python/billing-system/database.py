@@ -145,6 +145,8 @@ class BillingDB:
         fetch = self.cur.execute("""SELETCT * FROM CUSTOMER""")
         return fetch.fetchall()
 
+        # billing
+
 
     def create_bill(self, customer_id, total_price):
         date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
